@@ -1,10 +1,6 @@
 # AASM Diagram
 
-[AASM Diagram](https://github.com/katee/aasm-diagram) creates diagrams for [ASSM](https://github.com/aasm/aasm) state machines.
-
-AASM Diagram is heavily inspired by [rails-erd](https://github.com/voormedia/rails-erd).
-
-To take an example from the AASM Readme:
+[AASM Diagram](https://github.com/katee/aasm-diagram) creates diagrams for [ASSM](https://github.com/aasm/aasm) state machines. To take an example from the AASM Readme:
 
 ```ruby
 require 'aasm-diagram'
@@ -35,9 +31,11 @@ job = Job.new
 AASMDiagram::Diagram.new(job.aasm, 'docs/job.png')
 ```
 
-generates the following diagram:
+Generates the following diagram:
 
 ![Diagram of Job state machine](docs/job.png)
+
+AASM Diagram is heavily inspired by [rails-erd](https://github.com/voormedia/rails-erd).
 
 ## Installation
 
