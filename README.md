@@ -35,6 +35,24 @@ Generates the following diagram:
 
 ![Diagram of Job state machine](docs/job.png)
 
+## Installation
+
+Add this line to your application's Gemfile:
+
+```ruby
+gem 'aasm-diagram', require: false, group: :development
+```
+
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install aasm-diagram
+
+## More Examples
+
 ### Guards
 
 ```ruby
@@ -125,22 +143,6 @@ Geneartes two images:
 ## Notes
 
 AASM Diagram is heavily inspired by [rails-erd](https://github.com/voormedia/rails-erd).
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'aasm-diagram'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install aasm-diagram
 
 ## License
 
