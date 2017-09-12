@@ -124,7 +124,7 @@ AASMDiagram::Diagram.new(simple.aasm(:move), 'docs/multiple-state-machines-1.png
 AASMDiagram::Diagram.new(simple.aasm(:work), 'docs/multiple-state-machines-2.png')
 ```
 
-Geneartes two images:
+Generates two images:
 
 ![Diagram of state machine 1](docs/multiple-state-machines-1.png)
 ![Diagram of state machine 2](docs/multiple-state-machines-2.png)
