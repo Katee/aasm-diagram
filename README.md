@@ -37,19 +37,8 @@ Generates the following diagram:
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'aasm-diagram', require: false, group: :development
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install aasm-diagram
+* Install Graphviz ([see the rails-erd guide for more details](https://voormedia.github.io/rails-erd/install.html)). If you use Homebrew try `brew install graphviz`.
+* Add `gem 'aasm-diagram', require: false, group: :development` to your `Gemfile` and run `bundle`.
 
 ## More Examples
 
