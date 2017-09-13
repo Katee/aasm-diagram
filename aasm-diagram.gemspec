@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.name          = 'aasm-diagram'
   spec.version       = AASMDiagram::VERSION
   spec.authors       = ['Kate Murphy']
-  spec.email         = ['hello@kate.io']
+  spec.email         = ['code@kate.io']
 
   spec.summary       = 'Automatically generate diagrams of AASM state machines.'
   spec.homepage      = 'https://github.com/katee/aasm-diagram'
