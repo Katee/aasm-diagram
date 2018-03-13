@@ -1,10 +1,9 @@
 # AASM Diagram
 
-[AASM Diagram](https://github.com/katee/aasm-diagram) creates diagrams for [ASSM](https://github.com/aasm/aasm) state machines. To take an example from the AASM Readme:
+[AASM Diagram](https://github.com/katee/aasm-diagram) creates diagrams for [ASSM](https://github.com/aasm/aasm) state machines. 
+For example, lets take **Job** model from the [AASM Readme](https://github.com/aasm/aasm/blob/master/README.md):
 
 ```ruby
-require 'aasm-diagram'
-
 class Job
   include AASM
 
@@ -25,13 +24,17 @@ class Job
     end
   end
 end
-
-job = Job.new
-
-AASMDiagram::Diagram.new(job.aasm, 'docs/job.png')
 ```
 
-Generates the following diagram:
+## Basic usage
+Now in your console you can execute:
+```ruby
+>> require 'aasm-diagram'
+>> job = Job.new
+>> AASMDiagram::Diagram.new(job.aasm, 'tmp/job.png')
+```
+
+It will generate the following diagram:
 
 ![Diagram of Job state machine](docs/job.png)
 
