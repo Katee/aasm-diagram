@@ -22,12 +22,14 @@ module AASMDiagram
     end
 
     def draw_edges
-      events.each do |event|
+      events.each_value do |event|
         event.transitions.each do |transition|
           from = @graphviz.get_node(transition.from.to_s)
           to = @graphviz.get_node(transition.to.to_s)
-          label = event.name.to_s
-          @graphviz.add_edges(from, to, label: label)
+          label = event.name.to_s || ''
+          if from && to
+            @graphviz.add_edges(from, to, label: label)
+          end
         end
       end
     end
@@ -47,7 +49,7 @@ module AASMDiagram
     end
 
     def events
-      @aasm_instance.events.first.state_machine.events.values
+      @aasm_instance.events.first.state_machine.events
     end
   end
 end
