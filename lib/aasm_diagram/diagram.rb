@@ -3,8 +3,9 @@ module AASMDiagram
   # Save a diagram of a single AASM state machine to an image
   #
   class Diagram
-    def initialize(aasm_instance, filename)
+    def initialize(aasm_instance, filename, type=:png)
       @aasm_instance = aasm_instance
+      @type = type
       draw
       save(filename)
     end
@@ -33,7 +34,7 @@ module AASMDiagram
     end
 
     def save(filename)
-      @graphviz.output(png: filename)
+      @graphviz.output(@type => filename)
     end
 
     private
