@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_runtime_dependency 'aasm', '~> 4.12'
+  spec.add_runtime_dependency 'aasm', ['>= 4.12', '~> 5.0']
   spec.add_runtime_dependency 'ruby-graphviz', '~> 1.2'
 
   spec.add_development_dependency 'bundler', '~> 1.14'
