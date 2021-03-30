@@ -37,8 +37,59 @@ Generates the following diagram:
 
 ## Installation
 
-* Install Graphviz ([see the rails-erd guide for more details](https://voormedia.github.io/rails-erd/install.html)). If you use Homebrew try `brew install graphviz`.
-* Add `gem 'aasm-diagram', require: false, group: :development` to your `Gemfile` and run `bundle`.
+- Install Graphviz ([see the rails-erd guide for more details](https://voormedia.github.io/rails-erd/install.html)). If you use Homebrew try `brew install graphviz`.
+- Add `gem 'aasm-diagram', require: false, group: :development` to your `Gemfile` and run `bundle`.
+
+## Integration
+
+The gem exposes the `generate` Rake task, that can be used to generate the diagrams of state machines into
+PNG images. The `generate` task accepts two parameters:
+
+- the name of the model, in underscored format, will be CamelCased by the task
+- the name of the state machine, for models with multiple AASMs; this argument is optional
+
+The task will output the PNG image by default to the `/tmp` folder; but can be configured via the
+`AASM_DIAGRAM_OUTPUT_DIR` environment variable to write the files to another folder.
+
+The filenames are generated based on the parameters as follows `model_name-state_machine_name.png`.
+If no state machine name is provided, the task will use `default` for the file name.
+
+```sh
+# for the Order model and the :dropoff state machine
+rake aasm-diagram:generate[order,dropoff] # -> tmp/order-dropoff.png
+
+# for the Invoice model and the "default" state machine
+rake aasm-diagram:generate[invoice] # -> tmp/invoice-default.png
+
+# with custom output directory
+AASM_DIAGRAM_OUTPUT_DIR=docs rake aasm-diagram:generate[invoice] # -> docs/invoice-default.png
+```
+
+### Rails
+
+Once installed, the gem automatically integrates with Rails via Railties and exposes the task automatically.
+
+`rails aasm-diagram:generate[my_model,my_state_machine]`
+
+If the model contains only one state machine, or you just want to generate for the "default" one
+you can skip the state machine name parameter.
+
+`rails assm-diagram:generate[my_model]`
+
+### Plain Ruby
+
+For plain Ruby projects the gem includes a Rakefile that can be loaded in your project's Rakefile,
+using source code along the lines of:
+
+```ruby
+# in Rakefile
+
+require 'aasm-diagram'
+
+spec = Gem::Specification.find_by_name 'aasm-diagram'
+rakefile = "#{spec.gem_dir}/lib/aasm_diagram/Rakefile"
+load rakefile
+```
 
 ## More Examples
 
