@@ -48,7 +48,7 @@ module AASMDiagram
     end
 
     def events
-      @aasm_instance.events.first.state_machine.events.values
+      @aasm_instance.events
     end
   end
 end
