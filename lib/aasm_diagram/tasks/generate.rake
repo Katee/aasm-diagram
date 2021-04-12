@@ -7,13 +7,11 @@ namespace :'aasm-diagram' do
 
     smn = args[:smn]&.to_sym
 
-    model_instance = model_klass.new
-
     output_dir = ENV.fetch('AASM_DIAGRAM_OUTPUT_DIR') { './tmp' }
     output = File.join([output_dir, "#{args[:model]}-#{args[:smn] || 'default'}.png"])
 
     AASMDiagram::Diagram.new(
-      smn && model_instance.aasm(smn) || model_instance.aasm,
+      smn && model_klass.aasm(smn) || model_klass.aasm,
       output
     )
   end
