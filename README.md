@@ -74,7 +74,7 @@ Once installed, the gem automatically integrates with Rails via Railties and exp
 If the model contains only one state machine, or you just want to generate for the "default" one
 you can skip the state machine name parameter.
 
-`rails assm-diagram:generate[my_model]`
+`rails aasm-diagram:generate[my_model]`
 
 ### Plain Ruby
 
