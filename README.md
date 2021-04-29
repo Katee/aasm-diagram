@@ -26,9 +26,7 @@ class Job
   end
 end
 
-job = Job.new
-
-AASMDiagram::Diagram.new(job.aasm, 'docs/job.png')
+AASMDiagram::Diagram.new(Job.aasm, 'docs/job.png')
 ```
 
 Generates the following diagram:
@@ -130,8 +128,7 @@ class Cleaner
   end
 end
 
-cleaner = Cleaner.new
-AASMDiagram::Diagram.new(job.aasm, '../docs/guard-cleaner.png')
+AASMDiagram::Diagram.new(Cleaner.aasm, '../docs/guard-cleaner.png')
 ```
 
 ![Diagram of Cleaner state machine](docs/guard-cleaner.png)
@@ -170,9 +167,8 @@ class SimpleMultipleExample
   end
 end
 
-simple = SimpleMultipleExample.new
-AASMDiagram::Diagram.new(simple.aasm(:move), 'docs/multiple-state-machines-1.png')
-AASMDiagram::Diagram.new(simple.aasm(:work), 'docs/multiple-state-machines-2.png')
+AASMDiagram::Diagram.new(SimpleMultipleExample.aasm(:move), 'docs/multiple-state-machines-1.png')
+AASMDiagram::Diagram.new(SimpleMultipleExample.aasm(:work), 'docs/multiple-state-machines-2.png')
 ```
 
 Generates two images:
