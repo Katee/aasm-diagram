@@ -3,9 +3,10 @@ module AASMDiagram
   # Save a diagram of a single AASM state machine to an image
   #
   class Diagram
-    def initialize(aasm_instance, filename, type=:png)
+    def initialize(aasm_instance, filename, type = :png, options: {})
       @aasm_instance = aasm_instance
       @type = type
+      @options = options
       draw
       save(filename)
     end
@@ -28,7 +29,13 @@ module AASMDiagram
           from = @graphviz.get_node(transition.from.to_s)
           to = @graphviz.get_node(transition.to.to_s)
           label = event.name.to_s
-          @graphviz.add_edges(from, to, label: label)  unless from.nil?
+
+          if @options[:include_guards_in_label]
+            label << "\nif: #{transition.options[:if]}" if transition.options[:if]
+            label << "\nunless: #{transition.options[:unless]}" if transition.options[:unless]
+          end
+
+          @graphviz.add_edges(from, to, label: label) unless from.nil?
         end
       end
     end
